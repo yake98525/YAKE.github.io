@@ -1,6 +1,5 @@
 
-  
-    <!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
@@ -13,18 +12,18 @@
 
     
     <meta name="description" content="1：电商如此发达的现在，作为一个web开发程序猿，如果不会写购物车，真是有点不好意思找工作。所以抓紧练习啊，从上篇博客中抽离出如何实现购物车的功能。 2：首先需要理解购物车实现的一些基本步骤。　　2.1:首先考虑我购买的是哪一本书籍或者那一件商品，是不是，这里可以使用id传参确定购买的是那一件商品或者书籍，也可以使用session中取出哪一本书籍，这里采用从session的取出那一件商品或者书籍">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="购物车的实现">
-<meta property="og:url" content="http://yoursite.com/购物车的实现/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/index/index.html">
 <meta property="og:site_name" content="哑柯博客">
 <meta property="og:description" content="1：电商如此发达的现在，作为一个web开发程序猿，如果不会写购物车，真是有点不好意思找工作。所以抓紧练习啊，从上篇博客中抽离出如何实现购物车的功能。 2：首先需要理解购物车实现的一些基本步骤。　　2.1:首先考虑我购买的是哪一本书籍或者那一件商品，是不是，这里可以使用id传参确定购买的是那一件商品或者书籍，也可以使用session中取出哪一本书籍，这里采用从session的取出那一件商品或者书籍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/购物车的实现/images/%3C%=book.getPic()%20%%3E">
-<meta property="og:updated_time" content="2019-06-05T12:41:28.086Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/05/index/images/%3C%=book.getPic()%20%%3E">
+<meta property="og:updated_time" content="2019-06-05T13:15:19.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="购物车的实现">
 <meta name="twitter:description" content="1：电商如此发达的现在，作为一个web开发程序猿，如果不会写购物车，真是有点不好意思找工作。所以抓紧练习啊，从上篇博客中抽离出如何实现购物车的功能。 2：首先需要理解购物车实现的一些基本步骤。　　2.1:首先考虑我购买的是哪一本书籍或者那一件商品，是不是，这里可以使用id传参确定购买的是那一件商品或者书籍，也可以使用session中取出哪一本书籍，这里采用从session的取出那一件商品或者书籍">
-<meta name="twitter:image" content="http://yoursite.com/购物车的实现/images/%3C%=book.getPic()%20%%3E">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/05/index/images/%3C%=book.getPic()%20%%3E">
 
     
     <link rel="alternative" href="/atom.xml" title="哑柯博客" type="application/atom+xml">
@@ -39,9 +38,9 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 </html>
-      <body>
-        <header>
-          
+  <body>
+    <header>
+      
 <div>
 		
 			<div id="imglogo">
@@ -76,15 +75,15 @@
 				</ul>
 			</ul></nav>			
 </div>
-        </header>
-        <div id="container">
-          <div id="main" class="page" itemscope itemprop="blogPost">
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/购物车的实现/index.html" title="购物车的实现" itemprop="url">购物车的实现</a>
+      <a href="/2019/06/05/index/" title="购物车的实现" itemprop="url">购物车的实现</a>
   </h1>
   <p class="article-author">By
        
@@ -97,6 +96,13 @@
 </header>
 	<div class="article-content">
 		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
 		<p>1：电商如此发达的现在，作为一个web开发程序猿，如果不会写购物车，真是有点不好意思找工作。所以抓紧练习啊，从上篇博客中抽离出如何实现购物车的功能。</p>
 <p>2：首先需要理解购物车实现的一些基本步骤。<br>　　2.1:首先考虑我购买的是哪一本书籍或者那一件商品，是不是，这里可以使用id传参确定购买的是那一件商品或者书籍，也可以使用session中取出哪一本书籍，这里采用从session的取出那一件商品或者书籍<br>    　　 代码如：</p>
 <p>　　　　　　Book book=(Book)session.getAttribute(“book”);<br>     2.2:第二考虑如何把书籍放到购物车中<br>         2.1.1:首先考虑是否有购物车，如果没有，则创建，如果有直接使用<br>         2.1.2:其次先将购物车从session中拿出来，不存在就创建。<br>　　　　代码如：</p>
@@ -107,7 +113,7 @@
 <p>3：下面是具体的实现，从创建数据表开始，数据表book字段和数据名称如下所示：</p>
 <p>　</p>
 <p>4：下面创建实体类book.java;</p>
-<p>复制代码<br> 1 package com.bie.po;<br> 2<br> 3 import java.io.Serializable;<br> 4<br> 5 /** 
+<p> 1 package com.bie.po;<br> 2<br> 3 import java.io.Serializable;<br> 4<br> 5 /** 
  6 * @author BieHongLi<br> 7 * @version 创建时间：2017年2月27日 上午10:07:21<br> 8 * 图书的实体类<br> 9 */<br>10 public class Book implements Serializable{<br>11<br>12     //实体类实现序列化，避免后面出现异常<br>13     private static final long serialVersionUID = 1L;<br>14     private Integer bookid;<br>15     private String bookname;<br>16     private Double price;<br>17     private String author;<br>18     private String pic;<br>19     private String publish;<br>20     public Integer getBookid() {<br>21         return bookid;<br>22     }<br>23     public void setBookid(Integer bookid) {<br>24         this.bookid = bookid;<br>25     }<br>26     public String getBookname() {<br>27         return bookname;<br>28     }<br>29     public void setBookname(String bookname) {<br>30         this.bookname = bookname;<br>31     }<br>32     public Double getPrice() {<br>33         return price;<br>34     }<br>35     public void setPrice(Double price) {<br>36         this.price = price;<br>37     }<br>38     public String getAuthor() {<br>39         return author;<br>40     }<br>41     public void setAuthor(String author) {<br>42         this.author = author;<br>43     }<br>44     public String getPic() {<br>45         return pic;<br>46     }<br>47     public void setPic(String pic) {<br>48         this.pic = pic;<br>49     }<br>50     public String getPublish() {<br>51         return publish;<br>52     }<br>53     public void setPublish(String publish) {<br>54         this.publish = publish;<br>55     }<br>56     @Override<br>57     public String toString() {<br>58         return “Book [bookid=” + bookid + “, bookname=” + bookname + “, price=” + price + “, author=” + author<br>59                 + “, pic=” + pic + “, publish=” + publish + “]”;<br>60     }<br>61<br>62<br>63 }</p>
 <p> 5:创建好实体类接下来是写工具类BaseDao.java,用于连接数据库的操作，这些代码就不做多解释了，都已经写烂了。所以工具类一定要熟练书写</p>
 <p>  1 package com.bie.utils;<br>  2<br>  3 import java.sql.Connection;<br>  4 import java.sql.DriverManager;<br>  5 import java.sql.PreparedStatement;<br>  6 import java.sql.ResultSet;<br>  7 import java.sql.SQLException;<br>  8<br>  9 /** 
@@ -157,7 +163,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/购物车的实现/index.html" data-title="购物车的实现 | 哑柯博客" data-tsina="563168458@qq.com" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/06/05/index/" data-title="购物车的实现 | 哑柯博客" data-tsina="563168458@qq.com" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -168,13 +174,86 @@
    	       
 	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/06/04/hello-world/" title="Hello World">
+ <strong>下一篇：</strong><br> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
 	
 
 
 
 </div>  
-        </div>
-        <footer><div id="footer">
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.csdn.net/一个面向程序员交流分享的新一代社区" target="_blank" title="码农圈">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/onepeace/" target="_blank" title="博客园">博客园</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=563168458@qq.com&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
 	
 	<div class="line">
 		<span></span>
@@ -217,7 +296,7 @@
 		</p>
 </div>
 </footer>
-        <script src="/js/jquery-2.0.3.min.js"></script>
+    <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 <script src="/js/jquery.qrcode-0.12.0.min.js"></script>
@@ -261,8 +340,36 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
   });
 });
 </script>
@@ -387,6 +494,5 @@ var _hmt = _hmt || [];
 
 <!-- Tiny_search End -->
 
-      </body>
-     </html>
-     
+  </body>
+</html>
